@@ -19,8 +19,8 @@ public:
 	GameObject* FindObjectWithTag(char* tag);
 	sf::RenderWindow* renderWindow;
 	sf::Time deltaTime;
+	bool canChangeGame;
 private:
-
 	std::vector<GameObject*> m_gameObjects;
 };
 

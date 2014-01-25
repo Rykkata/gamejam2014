@@ -3,6 +3,7 @@
 #include "PhysicComponent.h"
 #pragma once
 
+enum MODIFY_WORLD {PADDLE_SIZE_UP, PADDLE_SIZE_DOWN, PADDLE_SPEED_UP, PADDLE_SPEED_DOWN, BALL_SPEED_UP, BALL_SPEED_DOWN, BALL_SIZE_UP, BALL_SIZE_DOWN, THOMAS_TANK_BREATH_FIRE};
 class World;
 class GameObject
 {
@@ -16,6 +17,7 @@ public:
 	int width, height;						// The width and heigh of the object
 	char* tag;
 	sf::Rect<float> boundingBox;
+	
 private:
 	EventComponent* m_eventComponent;
 	GraphicComponent* m_graphicComponent;

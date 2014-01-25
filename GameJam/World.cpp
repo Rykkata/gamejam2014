@@ -5,6 +5,7 @@
 #include <iostream>
 World::World() : m_gameObjects()
 {
+	canChangeGame = true;
 	renderWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "Pong");
 }
 
@@ -24,6 +25,11 @@ void World::UpdateObjects(void)
 {
 	for (unsigned int i = 0; i < m_gameObjects.size(); i++)
 		m_gameObjects[i]->Update(this);
+
+	if (FindObjectWithTag("Ball")->x_velocity < 0)
+		canChangeGame = false;
+	else
+		canChangeGame = true;
 }
 
 void World::DrawObjects(void)
