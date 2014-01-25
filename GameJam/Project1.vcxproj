@@ -72,6 +72,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AI.cpp" />
+    <ClCompile Include="AIEventComponent.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="BallPhysicComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -93,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI.h" />
+    <ClInclude Include="AIEventComponent.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="BallPhysicComponent.h" />
     <ClInclude Include="EventComponent.h" />
@@ -106,6 +108,7 @@
     <ClInclude Include="PlayerEventComponent.h" />
     <ClInclude Include="Pong.h" />
     <ClInclude Include="PowerUps.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="StaticPhysicComponent.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UIEventComponent.h" />

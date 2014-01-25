@@ -39,3 +39,7 @@ int GameObject::Draw(World* world)
 
 	return 0;
 }
+
+float GameObject::ballY = 0;
+ACTIVATE GameObject::activateModifier = ON;
+MODIFY_WORLD GameObject::attribute = PADDLE_SIZE;

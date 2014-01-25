@@ -9,11 +9,13 @@
 
 // AI Components
 #include "AI.h"
-#include "NPCEventComponent.h"
+#include "AIEventComponent.h"
 
 // Ball Components
 #include "Ball.h"
 #include "BallPhysicComponent.h"
+#include "NPCEventComponent.h"
+
 
 // UI Components
 #include "UI.h"
@@ -26,12 +28,12 @@
 #include "MoveableGraphicComponent.h"
 
 // The graphic paths
-#define PADDLE_PATH "Paddle.png"
-#define BALL_PATH "Ball.png"
+#define PADDLE_PATH "Sprites/Paddle.png"
+#define BALL_PATH "Sprites/Ball.png"
 
 // The player constants
 #define PLAYER_X 720
-#define PLAYER_Y 20
+#define PLAYER_Y 300
 
 // The AI constants
 #define AI_X 60
@@ -40,7 +42,7 @@
 // The ball constants
 #define BALL_X 395
 #define BALL_Y 295
-#define BALL_X_VEL 100
+#define BALL_X_VEL 200
 #define BALL_Y_VEL 50
 
 // The tick rate, handle for 60 FPS
@@ -65,25 +67,15 @@ void Pong::RunGame(void)
 	
 	// Create the player and set its position
 	Player* player = new Player(new PlayerEventComponent(), new MoveableGraphicComponent(PADDLE_PATH), new MoveablePhysicComponent());
-	player->x = PLAYER_X;
-	player->y = PLAYER_Y;
-	player->x_velocity = player->y_velocity = 0;
 	player->tag = "Player";
 
 	// Create the AI and set its position
-	AI* ai = new AI(new NPCEventComponent(), new MoveableGraphicComponent(PADDLE_PATH), new MoveablePhysicComponent());
-	ai->x = AI_X;
-	ai->y = AI_Y;
-	ai->x_velocity = ai->y_velocity = 0;
+	AI* ai = new AI(new AIEventComponent(), new MoveableGraphicComponent(PADDLE_PATH), new MoveablePhysicComponent());
 	ai->tag = "AI";
 
 	// Create the ball and set it up
 	Ball* ball = new Ball(new NPCEventComponent(), new MoveableGraphicComponent(BALL_PATH), new BallPhysicComponent());
-	ball->x = BALL_X;
-	ball->y = BALL_Y;
-	ball->x_velocity = BALL_X_VEL;
-	ball->y_velocity = BALL_Y_VEL;
-	ball->tag = "BALL";
+	ball->tag = "Ball";
 
 	// Create the UI and set it up
 	UI* ui = new UI(new UIEventComponent(), new UIGraphicComponent(), new StaticPhysicComponent());
@@ -93,6 +85,9 @@ void Pong::RunGame(void)
 	gameWorld->AddObject(ai);
 	gameWorld->AddObject(ball);
 	gameWorld->AddObject(ui);
+
+	// Start the game
+	gameWorld->ResetObjects();
 
 	// Run the game
 	while (gameWorld->renderWindow->isOpen())
@@ -108,6 +103,7 @@ void Pong::RunGame(void)
 
 		// Redraw the screen and update the objects
 		gameWorld->renderWindow->clear();
+		gameWorld->DrawBackground();
 		gameWorld->UpdateObjects();
 		gameWorld->renderWindow->display();
 

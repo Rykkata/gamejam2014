@@ -1,7 +1,7 @@
 #include "BallPhysicComponent.h"
 #include "GameObject.h"
 #include "World.h"
-
+#include <cstdlib>
 BallPhysicComponent::BallPhysicComponent()
 {
 }
@@ -20,21 +20,23 @@ int BallPhysicComponent::Update(GameObject* gameObject, World* world)
 	{
 		gameObject->x = newX;
 		gameObject->y = newY;
-
+		GameObject::ballY = newY;
 		gameObject->boundingBox.left = gameObject->x;
 		gameObject->boundingBox.top = gameObject->y;
 	}
 	else if (newX <= 0)								   // Player Scored
 	{
-		gameObject->y = newY;
-		gameObject->x_velocity = -gameObject->x_velocity;
-		gameObject->boundingBox.top = gameObject->y;
+		++world->playerTwoScore;
+		world->ResetObjects();
+
+		return 0;
 	}
 	else if (newX + gameObject->width >= world->renderWindow->getSize().x) // AI Scored
 	{
-		gameObject->y = newY;
-		gameObject->x_velocity = -gameObject->x_velocity;
-		gameObject->boundingBox.top = gameObject->y;
+		++world->playerOneScore;
+		world->ResetObjects();
+		
+		return 0;
 	}
 	else  											   // Hit the top or bottom of the screenof the screen
 	{
@@ -43,9 +45,24 @@ int BallPhysicComponent::Update(GameObject* gameObject, World* world)
 		gameObject->boundingBox.left = gameObject->x;
 	}
 
-	if (world->CollisionDetection(gameObject, "Player") || world->CollisionDetection(gameObject, "AI"))
+	if (world->CollisionDetection(gameObject, "Player"))
 	{
 		gameObject->x_velocity = -gameObject->x_velocity;
+		GameObject* player = world->FindObjectWithTag("Player");
+		if (player->y_velocity != 0)
+			gameObject->y_velocity += player->y_velocity;
+		else
+			gameObject->y_velocity += rand() % 51 - 25;
+	}
+
+	if (world->CollisionDetection(gameObject, "AI"))
+	{
+		gameObject->x_velocity = -gameObject->x_velocity;
+		GameObject* AI = world->FindObjectWithTag("AI");
+		if (AI->y_velocity != 0)
+			gameObject->y_velocity += AI->y_velocity;
+		else
+			gameObject->y_velocity += rand() % 51 - 25;
 	}
 
 

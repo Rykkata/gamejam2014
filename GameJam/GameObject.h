@@ -4,7 +4,7 @@
 #pragma once
 
 enum MODIFY_WORLD {PADDLE_SIZE, PADDLE_SPEED, BALL_SPEED, BALL_SIZE, THOMAS_TANK_BREATH_FIRE};
-enum ACTIVATE {UP, DOWN, OFF};
+enum ACTIVATE {UP, DOWN, OFF, ON};
 
 class World;
 class GameObject
@@ -21,6 +21,7 @@ public:
 	sf::Rect<float> boundingBox;
 	static ACTIVATE activateModifier;
 	static MODIFY_WORLD attribute;
+	static float ballY;
 private:
 	EventComponent* m_eventComponent;
 	GraphicComponent* m_graphicComponent;

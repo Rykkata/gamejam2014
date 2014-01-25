@@ -72,6 +72,9 @@
     <ClCompile Include="StaticPhysicComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AIEventComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -132,6 +135,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StaticPhysicComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AIEventComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

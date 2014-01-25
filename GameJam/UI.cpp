@@ -13,5 +13,6 @@ UI::~UI()
 
 int UI::Update(World* world)
 {
+	GameObject::Update(world);
 	return 0;
 }
