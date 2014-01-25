@@ -23,7 +23,7 @@
 World::World() : m_gameObjects()
 {
 	canChangeGame = true;
-	renderWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "Candy Crush: The Saga of Scrolls");
+	renderWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "Candy Saga: The Crushing Scrolls");
 
 	if (!m_backgroundTexture.loadFromFile(BACKGROUND_PATH))
 		std::cout << "Error loading background" << std::endl;
