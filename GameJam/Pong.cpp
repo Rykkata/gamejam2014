@@ -15,7 +15,11 @@
 #include "Ball.h"
 #include "BallPhysicComponent.h"
 
-// NPC Components
+// UI Components
+#include "UI.h"
+#include "UIGraphicComponent.h"
+#include "UIEventComponent.h"
+#include "StaticPhysicComponent.h"
 
 // Moveable Components
 #include "MoveablePhysicComponent.h"
@@ -81,10 +85,14 @@ void Pong::RunGame(void)
 	ball->y_velocity = BALL_Y_VEL;
 	ball->tag = "BALL";
 
+	// Create the UI and set it up
+	UI* ui = new UI(new UIEventComponent(), new UIGraphicComponent(), new StaticPhysicComponent());
+
 	// Add the objects to the world
 	gameWorld->AddObject(player);
 	gameWorld->AddObject(ai);
 	gameWorld->AddObject(ball);
+	gameWorld->AddObject(ui);
 
 	// Run the game
 	while (gameWorld->renderWindow->isOpen())

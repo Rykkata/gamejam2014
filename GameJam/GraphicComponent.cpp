@@ -1,6 +1,12 @@
 #include "GraphicComponent.h"
 #include "GameObject.h"
 
+GraphicComponent::GraphicComponent()
+{
+	m_texture = new sf::Texture();
+	m_sprite = new sf::Sprite();
+}
+
 GraphicComponent::GraphicComponent(char* filePath)
 {
 	// Create the texture

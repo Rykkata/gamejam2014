@@ -6,6 +6,7 @@ class World;
 class GraphicComponent 
 {
 public:
+	GraphicComponent();
 	GraphicComponent(char* filePath);
 	~GraphicComponent();
 	virtual int Update(GameObject* gameObject, World* world) = 0;
