@@ -73,17 +73,41 @@
   <ItemGroup>
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="BallPhysicComponent.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MoveableGraphicComponent.cpp" />
+    <ClCompile Include="MoveablePhysicComponent.cpp" />
+    <ClCompile Include="NPCEventComponent.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerEventComponent.cpp" />
+    <ClCompile Include="Pong.cpp" />
     <ClCompile Include="PowerUps.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="Xbox360.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI.h" />
     <ClInclude Include="Ball.h" />
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="BallPhysicComponent.h" />
+    <ClInclude Include="EventComponent.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GraphicComponent.h" />
+    <ClInclude Include="MoveableGraphicComponent.h" />
+    <ClInclude Include="MoveablePhysicComponent.h" />
+    <ClInclude Include="NPCEventComponent.h" />
+    <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerEventComponent.h" />
+    <ClInclude Include="Pong.h" />
     <ClInclude Include="PowerUps.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="Xbox360.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Ball.png" />
+    <Image Include="Paddle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

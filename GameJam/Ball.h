@@ -1,8 +1,11 @@
 #pragma once
-class Ball
+#include "GameObject.h"
+
+class Ball : public GameObject
 {
 public:
-	Ball();
+	Ball(EventComponent* eventComponent, GraphicComponent* graphicComponent, PhysicComponent* physicComponent);
 	~Ball();
+	virtual int Update(World* world);
 };
 

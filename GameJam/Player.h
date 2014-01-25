@@ -1,8 +1,12 @@
 #pragma once
-class Player
+#include "GameObject.h"
+
+class Player : public GameObject
 {
 public:
-	Player();
+	Player(EventComponent* eventComponent, GraphicComponent* graphicComponent, PhysicComponent* physicComponent);
 	~Player();
+	virtual int Update(World* world);
+private:
 };
 

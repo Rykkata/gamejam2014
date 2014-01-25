@@ -1,8 +1,7 @@
-#include "Game.h"
+#include "Pong.h"
 
-int main()
+int main(void)
 {
-	Game::GetInstance().RunGame();
-
+	Pong::GetInstance().RunGame();
 	return 0;
 }

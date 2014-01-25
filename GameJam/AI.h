@@ -1,8 +1,10 @@
 #pragma once
-class AI
+#include "GameObject.h"
+class AI : public GameObject
 {
 public:
-	AI();
+	AI(EventComponent* eventComponent, GraphicComponent* graphicComponent, PhysicComponent* physicComponent);
 	~AI();
+	virtual int Update(World* world);
 };
 
