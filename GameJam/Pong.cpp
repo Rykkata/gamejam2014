@@ -87,7 +87,7 @@ void Pong::RunGame(void)
 	gameWorld->AddObject(ui);
 
 	// Start the game
-	gameWorld->ResetObjects();
+	gameWorld->ResetObjects(false);
 
 	// Run the game
 	while (gameWorld->renderWindow->isOpen())

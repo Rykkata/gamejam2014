@@ -8,11 +8,11 @@
 
 // The player constants
 #define PLAYER_X 720
-#define PLAYER_Y 300
+#define PLAYER_Y 350
 
 // The AI constants
 #define AI_X 60
-#define AI_Y 300
+#define AI_Y 350
 
 // The ball constants
 #define BALL_X 395
@@ -23,7 +23,7 @@
 World::World() : m_gameObjects()
 {
 	canChangeGame = true;
-	renderWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "Pong");
+	renderWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "Candy Crush: The Saga of Scrolls");
 
 	if (!m_backgroundTexture.loadFromFile(BACKGROUND_PATH))
 		std::cout << "Error loading background" << std::endl;
@@ -102,7 +102,7 @@ bool World::CollisionDetection(GameObject* object, char* tag)
 	return object->boundingBox.intersects(objectToTest->boundingBox);
 }
 
-void World::ResetObjects(void)
+void World::ResetObjects(bool didPlayerScore)
 {
 	// Reset the player
 	GameObject* player = FindObjectWithTag("Player");
@@ -115,12 +115,23 @@ void World::ResetObjects(void)
 	ai->x = AI_X;
 	ai->y = AI_Y;
 	ai->x_velocity = ai->y_velocity = 0;
-
 	GameObject* ball = FindObjectWithTag("Ball");
 	ball->x = BALL_X;
 	ball->y = BALL_Y;
-	ball->x_velocity = BALL_X_VEL;
 	ball->y_velocity = BALL_Y_VEL;
+
+	if (didPlayerScore)
+	{
+		ball->x_velocity = -BALL_X_VEL;
+		canChangeGame = true;
+		GameObject::activateModifier = ON;
+	}	
+	else
+	{
+		ball->x_velocity = BALL_X_VEL;
+		canChangeGame = false;
+		GameObject::activateModifier = OFF;
+	}
 
 	GameObject::ballY = BALL_Y;
 }

@@ -18,7 +18,7 @@ public:
 	bool CanMoveTo(float x, float y, int width, int height);
 	void DrawBackground(void);
 	GameObject* FindObjectWithTag(char* tag);
-	void ResetObjects(void);
+	void ResetObjects(bool didPlayerScore);
 	sf::RenderWindow* renderWindow;
 	sf::Time deltaTime;
 	bool canChangeGame;

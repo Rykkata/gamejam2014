@@ -2,6 +2,9 @@
 #include "GameObject.h"
 #include "World.h"
 #include <cstdlib>
+
+#define MAX_Y_VEL 600
+
 BallPhysicComponent::BallPhysicComponent()
 {
 }
@@ -27,14 +30,14 @@ int BallPhysicComponent::Update(GameObject* gameObject, World* world)
 	else if (newX <= 0)								   // Player Scored
 	{
 		++world->playerTwoScore;
-		world->ResetObjects();
+		world->ResetObjects(true);
 
 		return 0;
 	}
 	else if (newX + gameObject->width >= world->renderWindow->getSize().x) // AI Scored
 	{
 		++world->playerOneScore;
-		world->ResetObjects();
+		world->ResetObjects(false);
 		
 		return 0;
 	}
@@ -65,6 +68,11 @@ int BallPhysicComponent::Update(GameObject* gameObject, World* world)
 			gameObject->y_velocity += rand() % 51 - 25;
 	}
 
+	if (gameObject->y_velocity < -MAX_Y_VEL)
+		gameObject->y_velocity = -MAX_Y_VEL;
+
+	if (gameObject->y_velocity > MAX_Y_VEL)
+		gameObject->y_velocity = MAX_Y_VEL;
 
 	return 0;
 }
