@@ -5,16 +5,40 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameJam", "GameJam\Project1.vcxproj", "{034B288B-0626-4A4F-88FB-801E54101D80}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Game Jam Installer", "Game Jam Installer\Game Jam Installer.isproj", "{2869ED19-46B0-46B3-B913-3F70CCAACB15}"
+	ProjectSection(ProjectDependencies) = postProject
+		{034B288B-0626-4A4F-88FB-801E54101D80} = {034B288B-0626-4A4F-88FB-801E54101D80}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Win32 = CD_ROM|Win32
 		Debug|Win32 = Debug|Win32
+		DVD-5|Win32 = DVD-5|Win32
 		Release|Win32 = Release|Win32
+		SingleImage|Win32 = SingleImage|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{034B288B-0626-4A4F-88FB-801E54101D80}.CD_ROM|Win32.ActiveCfg = Release|Win32
+		{034B288B-0626-4A4F-88FB-801E54101D80}.CD_ROM|Win32.Build.0 = Release|Win32
 		{034B288B-0626-4A4F-88FB-801E54101D80}.Debug|Win32.ActiveCfg = Debug|Win32
 		{034B288B-0626-4A4F-88FB-801E54101D80}.Debug|Win32.Build.0 = Debug|Win32
+		{034B288B-0626-4A4F-88FB-801E54101D80}.DVD-5|Win32.ActiveCfg = Debug|Win32
+		{034B288B-0626-4A4F-88FB-801E54101D80}.DVD-5|Win32.Build.0 = Debug|Win32
 		{034B288B-0626-4A4F-88FB-801E54101D80}.Release|Win32.ActiveCfg = Release|Win32
 		{034B288B-0626-4A4F-88FB-801E54101D80}.Release|Win32.Build.0 = Release|Win32
+		{034B288B-0626-4A4F-88FB-801E54101D80}.SingleImage|Win32.ActiveCfg = Release|Win32
+		{034B288B-0626-4A4F-88FB-801E54101D80}.SingleImage|Win32.Build.0 = Release|Win32
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.CD_ROM|Win32.ActiveCfg = CD_ROM
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.CD_ROM|Win32.Build.0 = CD_ROM
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.Debug|Win32.ActiveCfg = DVD-5
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.Debug|Win32.Build.0 = DVD-5
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.DVD-5|Win32.ActiveCfg = DVD-5
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.DVD-5|Win32.Build.0 = DVD-5
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.Release|Win32.ActiveCfg = SingleImage
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.Release|Win32.Build.0 = SingleImage
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.SingleImage|Win32.ActiveCfg = SingleImage
+		{2869ED19-46B0-46B3-B913-3F70CCAACB15}.SingleImage|Win32.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
