@@ -31,20 +31,6 @@
 #define PADDLE_PATH "Sprites/Paddle.png"
 #define BALL_PATH "Sprites/Ball.png"
 
-// The player constants
-#define PLAYER_X 720
-#define PLAYER_Y 300
-
-// The AI constants
-#define AI_X 60
-#define AI_Y 20
-
-// The ball constants
-#define BALL_X 395
-#define BALL_Y 295
-#define BALL_X_VEL 200
-#define BALL_Y_VEL 50
-
 // The tick rate, handle for 60 FPS
 #define TICK_RATE 16667
 

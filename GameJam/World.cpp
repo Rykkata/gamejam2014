@@ -8,11 +8,11 @@
 
 // The player constants
 #define PLAYER_X 720
-#define PLAYER_Y 350
+#define PLAYER_Y 280
 
 // The AI constants
 #define AI_X 60
-#define AI_Y 350
+#define AI_Y 280
 
 // The ball constants
 #define BALL_X 395
