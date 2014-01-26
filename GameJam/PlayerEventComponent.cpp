@@ -7,7 +7,6 @@
 
 PlayerEventComponent::PlayerEventComponent()
 {
-	count = 0;
 }
 
 
@@ -19,10 +18,10 @@ int PlayerEventComponent::Update(GameObject* gameObject)
 {
 	if (GameObject::activateModifier == ON && GameObject::attribute == PADDLE_SPEED)
 	{
-		if (GameObject::message == UP && count < MAX)
-			--count;
-		else if (GameObject::message == DOWN && count > -MAX)
-			++count;
+		if (GameObject::message == UP && gameObject->count < MAX)
+			--gameObject->count;
+		else if (GameObject::message == DOWN && gameObject->count > -MAX)
+			++gameObject->count;
 	}
 	else if (GameObject::activateModifier == ON && GameObject::attribute == PADDLE_SIZE)
 	{
@@ -33,9 +32,9 @@ int PlayerEventComponent::Update(GameObject* gameObject)
 	}
 
 	if (xb360::LeftThumbUp() || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		gameObject->y_velocity = VELOCITY_UP + MODIFER * count;
+		gameObject->y_velocity = VELOCITY_UP + MODIFER * gameObject->count;
 	else if (xb360::LeftThumbDown() || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		gameObject->y_velocity = VELOCITY_DOWN + MODIFER * -count;
+		gameObject->y_velocity = VELOCITY_DOWN + MODIFER * -gameObject->count;
 	else
 		gameObject->y_velocity = 0;
 

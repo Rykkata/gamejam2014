@@ -8,6 +8,5 @@ public:
 	~BallPhysicComponent();
 	virtual int Update(GameObject* gameObeject, World* world);
 private:
-	int count;
 };
 

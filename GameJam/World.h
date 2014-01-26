@@ -23,7 +23,7 @@ public:
 	sf::Time deltaTime;
 	bool canChangeGame;
 	int playerOneScore, playerTwoScore;
-	
+	void ResetModifers(void);
 private:
 	sf::Texture m_backgroundTexture;
 	sf::Sprite m_backgroundImage;

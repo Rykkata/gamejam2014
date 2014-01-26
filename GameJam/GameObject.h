@@ -25,6 +25,7 @@ public:
 	static float ballY;
 	static UI_MESSAGE message;
 	int scaleCount;
+	int count;
 private:
 	EventComponent* m_eventComponent;
 	GraphicComponent* m_graphicComponent;

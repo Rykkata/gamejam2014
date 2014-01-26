@@ -8,6 +8,5 @@ public:
 	~AIEventComponent();
 	virtual int Update(GameObject* gameObeject);
 private:
-	int count;
 };
 

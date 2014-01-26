@@ -135,3 +135,16 @@ void World::ResetObjects(bool didPlayerScore)
 
 	GameObject::ballY = BALL_Y;
 }
+
+void World::ResetModifers(void)
+{
+	for (unsigned int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->scaleCount = 0;
+		m_gameObjects[i]->count = 0;
+	}
+
+	GameObject::attribute = PADDLE_SIZE;
+	GameObject::message = NONE;
+	GameObject::activateModifier = ON;
+}

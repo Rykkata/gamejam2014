@@ -14,6 +14,8 @@ GameObject::GameObject(EventComponent* eventComponent, GraphicComponent* graphic
 	boundingBox.top = y;
 	boundingBox.width = (float)width;
 	boundingBox.height = (float)height;
+	count = 0;
+	scaleCount = 0;
 }
 
 

@@ -49,7 +49,7 @@
 #define TICK_RATE 16667
 
 // Max Score of the game
-#define MAX_SCORE 21
+#define MAX_SCORE 10
 
 Pong& Pong::GetInstance(void)
 {
@@ -68,6 +68,7 @@ void Pong::RunGame(void)
 	bool didPlayerWin = false;
 	m_usingKeyboard = true;
 	m_isGameRunning = true;
+	bool displayEndScreen = false;
 	// Create the game world
 	World* gameWorld = new World();
 	
@@ -138,11 +139,40 @@ void Pong::RunGame(void)
 			{
 				didPlayerWin = false;
 				m_isGameRunning = false;
+				displayEndScreen = true;
+				gameWorld->renderWindow->clear();
+				gameWorld->renderWindow->display();
 			}
 			else if (gameWorld->playerTwoScore >= MAX_SCORE)
 			{
 				didPlayerWin = true;
 				m_isGameRunning = false;
+				displayEndScreen = true;
+				gameWorld->renderWindow->clear();
+				gameWorld->renderWindow->display();
+			}
+		}
+
+		while (displayEndScreen)
+		{
+			sf::Event event;
+			while (gameWorld->renderWindow->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+					gameWorld->renderWindow->close();
+
+				if (m_usingKeyboard && event.type == sf::Event::KeyPressed)
+				{
+					if (event.key.code == sf::Keyboard::R)
+					{
+						gameWorld->playerOneScore = 0;
+						gameWorld->playerTwoScore = 0;
+						displayEndScreen = false;
+						m_isGameRunning = true;
+						gameWorld->ResetObjects(false);
+						gameWorld->ResetModifers();
+					}
+				}
 			}
 		}
 	}

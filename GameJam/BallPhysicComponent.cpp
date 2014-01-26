@@ -13,7 +13,6 @@
 
 BallPhysicComponent::BallPhysicComponent()
 {
-	count = 0;
 }
 
 
@@ -25,28 +24,14 @@ int BallPhysicComponent::Update(GameObject* gameObject, World* world)
 {
 	if (GameObject::activateModifier == ON && GameObject::attribute == BALL_SPEED)
 	{
-		if (GameObject::message == UP && count < MAX)
+		if (GameObject::message == UP && gameObject->count < MAX)
 		{
-			++count;
-			int newVelocity = BALL_X;
-			newVelocity += count * MODIFER;
-
-			if (gameObject->x_velocity > 0)
-				gameObject->x_velocity = newVelocity;
-			else
-				gameObject->x_velocity = -newVelocity;
+			++gameObject->count;
 		}
 			
-		else if (GameObject::message == DOWN && count > -MAX)
+		else if (GameObject::message == DOWN && gameObject->count > -MAX)
 		{
-			--count;
-			int newVelocity = BALL_X;
-			newVelocity += count * MODIFER;
-
-			if (gameObject->x_velocity > 0)
-				gameObject->x_velocity = newVelocity;
-			else
-				gameObject->x_velocity = -newVelocity;
+			--gameObject->count;
 		}
 	}
 	else if (GameObject::activateModifier == ON && GameObject::attribute == BALL_SIZE)
@@ -57,6 +42,13 @@ int BallPhysicComponent::Update(GameObject* gameObject, World* world)
 			--gameObject->scaleCount;
 	}
 
+	int newVelocity = BALL_X;
+	newVelocity += gameObject->count * MODIFER;
+
+	if (gameObject->x_velocity > 0)
+		gameObject->x_velocity = newVelocity;
+	else
+		gameObject->x_velocity = -newVelocity;
 	float newX = gameObject->x + gameObject->x_velocity * world->deltaTime.asSeconds();
 	float newY = gameObject->y + gameObject->y_velocity * world->deltaTime.asSeconds();
 
@@ -111,11 +103,11 @@ int BallPhysicComponent::Update(GameObject* gameObject, World* world)
 			gameObject->y_velocity += rand() % 51 - 25;
 	}
 
-	if (gameObject->y_velocity < -MAX_Y_VEL + -count * Y_MODIFER)
-		gameObject->y_velocity = -MAX_Y_VEL - count * Y_MODIFER;
+	if (gameObject->y_velocity < -MAX_Y_VEL + -gameObject->count * Y_MODIFER)
+		gameObject->y_velocity = -MAX_Y_VEL - gameObject->count * Y_MODIFER;
 
-	if (gameObject->y_velocity > MAX_Y_VEL + count * Y_MODIFER)
-		gameObject->y_velocity = MAX_Y_VEL + count * Y_MODIFER;
+	if (gameObject->y_velocity > MAX_Y_VEL + gameObject->count * Y_MODIFER)
+		gameObject->y_velocity = MAX_Y_VEL + gameObject->count * Y_MODIFER;
 
 	return 0;
 }
