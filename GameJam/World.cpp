@@ -4,7 +4,7 @@
 #include "AI.h"
 #include <iostream>
 
-#define BACKGROUND_PATH "Images/background.png"
+#define BACKGROUND_PATH "Images/background.jpg"
 
 // The player constants
 #define PLAYER_X 720
