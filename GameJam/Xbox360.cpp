@@ -62,6 +62,11 @@ bool xb360::DPadRight()
 	return (GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT);
 }
 
+bool xb360::DPadNeut()
+{
+	return (!DPadDown() && !DPadLeft() && !DPadRight() && !DPadLeft());
+}
+
 bool xb360::LeftThumbUp()
 {
 	return (GetState().Gamepad.sThumbLY > XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE);

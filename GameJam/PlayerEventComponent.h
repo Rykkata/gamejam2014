@@ -8,5 +8,7 @@ public:
 	PlayerEventComponent();
 	~PlayerEventComponent();
 	virtual int Update(GameObject* gameObeject);
+private:
+	int count;
 };
 

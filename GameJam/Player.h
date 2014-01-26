@@ -8,5 +8,6 @@ public:
 	~Player();
 	virtual int Update(World* world);
 private:
+	int count;
 };
 

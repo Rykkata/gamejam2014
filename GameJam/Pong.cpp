@@ -48,6 +48,9 @@
 // The tick rate, handle for 60 FPS
 #define TICK_RATE 16667
 
+// Max Score of the game
+#define MAX_SCORE 21
+
 Pong& Pong::GetInstance(void)
 {
 	static Pong instance;
@@ -62,6 +65,9 @@ Pong::~Pong()
 void Pong::RunGame(void)
 {
 	sf::Clock gameClock;
+	bool didPlayerWin = false;
+	m_usingKeyboard = true;
+	m_isGameRunning = true;
 	// Create the game world
 	World* gameWorld = new World();
 	
@@ -86,26 +92,58 @@ void Pong::RunGame(void)
 	gameWorld->AddObject(ball);
 	gameWorld->AddObject(ui);
 
+	// Don't repeat keystrokes
+	gameWorld->renderWindow->setKeyRepeatEnabled(false);
+
 	// Start the game
 	gameWorld->ResetObjects(false);
 
 	// Run the game
 	while (gameWorld->renderWindow->isOpen())
 	{
-		gameWorld->deltaTime = gameClock.restart();
-
-		sf::Event event;
-		while (gameWorld->renderWindow->pollEvent(event))
+		while (m_isGameRunning)
 		{
-			if (event.type == sf::Event::Closed)
-				gameWorld->renderWindow->close();
+
+			gameWorld->deltaTime = gameClock.restart();
+			GameObject::message = NONE;
+
+			sf::Event event;
+			while (gameWorld->renderWindow->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+					gameWorld->renderWindow->close();
+
+				if (m_usingKeyboard && event.type == sf::Event::KeyPressed)
+				{
+					if (event.key.code == sf::Keyboard::Left)
+						GameObject::message = LEFT;
+
+					if (event.key.code == sf::Keyboard::Right)
+						GameObject::message = RIGHT;
+
+					if (event.key.code == sf::Keyboard::Up)
+						GameObject::message = UP;
+
+					if (event.key.code == sf::Keyboard::Down)
+						GameObject::message = DOWN;
+				}
+			}
+
+			// Redraw the screen and update the objects
+			gameWorld->renderWindow->clear();
+			gameWorld->DrawBackground();
+			gameWorld->UpdateObjects();
+			gameWorld->renderWindow->display();
+			if (gameWorld->playerOneScore >= MAX_SCORE)
+			{
+				didPlayerWin = false;
+				m_isGameRunning = false;
+			}
+			else if (gameWorld->playerTwoScore >= MAX_SCORE)
+			{
+				didPlayerWin = true;
+				m_isGameRunning = false;
+			}
 		}
-
-		// Redraw the screen and update the objects
-		gameWorld->renderWindow->clear();
-		gameWorld->DrawBackground();
-		gameWorld->UpdateObjects();
-		gameWorld->renderWindow->display();
-
 	}
 }

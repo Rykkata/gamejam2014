@@ -3,8 +3,9 @@
 #include "PhysicComponent.h"
 #pragma once
 
-enum MODIFY_WORLD {PADDLE_SIZE, PADDLE_SPEED, BALL_SPEED, BALL_SIZE, THOMAS_TANK_BREATH_FIRE};
-enum ACTIVATE {UP, DOWN, OFF, ON};
+enum MODIFY_WORLD { PADDLE_SIZE, PADDLE_SPEED, BALL_SIZE, BALL_SPEED, THOMAS_TANK_BREATH_FIRE };
+enum ACTIVATE {OFF, ON};
+enum UI_MESSAGE {LEFT, RIGHT, UP, DOWN, NONE};
 
 class World;
 class GameObject
@@ -22,6 +23,8 @@ public:
 	static ACTIVATE activateModifier;
 	static MODIFY_WORLD attribute;
 	static float ballY;
+	static UI_MESSAGE message;
+	int scaleCount;
 private:
 	EventComponent* m_eventComponent;
 	GraphicComponent* m_graphicComponent;

@@ -11,5 +11,7 @@ public:;
 	void RunGame(void);
 private:
 	sf::Time m_timer;
+	bool m_usingKeyboard;
+	bool m_isGameRunning;
 };
 

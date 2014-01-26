@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#define SCALE 0.2f
+
 class GameObject;
 class World;
 class GraphicComponent 

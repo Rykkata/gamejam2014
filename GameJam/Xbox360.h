@@ -19,6 +19,7 @@ namespace xb360
 	bool DPadDown();
 	bool DPadLeft();
 	bool DPadRight();
+	bool DPadNeut();
 	// Thumbstick, maybe switch to short and handle velocity that way?
 	bool LeftThumbUp();
 	bool LeftThumbDown();
