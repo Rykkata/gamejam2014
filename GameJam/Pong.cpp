@@ -30,6 +30,7 @@
 // The graphic paths
 #define PADDLE_PATH "Sprites/Paddle.png"
 #define BALL_PATH "Sprites/Ball.png"
+#define FONT_PATH "Fonts/BlackWolf.ttf"
 
 // The tick rate, handle for 60 FPS
 #define TICK_RATE 16667
@@ -141,6 +142,15 @@ void Pong::RunGame(void)
 
 		while (displayEndScreen)
 		{
+			sf::Font gameFont;
+			gameFont.loadFromFile(FONT_PATH);
+			sf::Text statusMessage;
+			statusMessage.setFont(gameFont);
+			if (didPlayerWin)
+				statusMessage.setString("You Won! Congratulations!");
+			else
+				statusMessage.setString("You lost... Try Again!");
+			statusMessage.set
 			sf::Event event;
 			while (gameWorld->renderWindow->pollEvent(event))
 			{
