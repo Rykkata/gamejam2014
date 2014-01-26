@@ -2,7 +2,7 @@
 
 // World
 #include "World.h"
-
+#include "SFML\Audio.hpp"
 // Player Components
 #include "Player.h"
 #include "PlayerEventComponent.h"
@@ -29,14 +29,23 @@
 
 // The graphic paths
 #define PADDLE_PATH "Sprites/Paddle.png"
+#define PLAYER_PATH "Sprites/PlayerPaddle.png"
+#define AI_PATH "Sprites/AIPaddle.png"
 #define BALL_PATH "Sprites/Ball.png"
 #define FONT_PATH "Fonts/BlackWolf.ttf"
+
+// The BGM file path
+#define BGM_PATH "Music/BGM.ogg"
 
 // The tick rate, handle for 60 FPS
 #define TICK_RATE 16667
 
 // Max Score of the game
 #define MAX_SCORE 10
+
+//End Screen stuff
+#define END_X 150
+#define END_Y 60
 
 Pong& Pong::GetInstance(void)
 {
@@ -52,6 +61,8 @@ Pong::~Pong()
 void Pong::RunGame(void)
 {
 	sf::Clock gameClock;
+	sf::Music BGM;
+	BGM.openFromFile(BGM_PATH);
 	bool didPlayerWin = false;
 	m_usingKeyboard = true;
 	m_isGameRunning = true;
@@ -60,11 +71,11 @@ void Pong::RunGame(void)
 	World* gameWorld = new World();
 	
 	// Create the player and set its position
-	Player* player = new Player(new PlayerEventComponent(), new MoveableGraphicComponent(PADDLE_PATH), new MoveablePhysicComponent());
+	Player* player = new Player(new PlayerEventComponent(), new MoveableGraphicComponent(PLAYER_PATH), new MoveablePhysicComponent());
 	player->tag = "Player";
 
 	// Create the AI and set its position
-	AI* ai = new AI(new AIEventComponent(), new MoveableGraphicComponent(PADDLE_PATH), new MoveablePhysicComponent());
+	AI* ai = new AI(new AIEventComponent(), new MoveableGraphicComponent(AI_PATH), new MoveablePhysicComponent());
 	ai->tag = "AI";
 
 	// Create the ball and set it up
@@ -85,7 +96,8 @@ void Pong::RunGame(void)
 
 	// Start the game
 	gameWorld->ResetObjects(false);
-
+	BGM.setLoop(true);
+	BGM.play();
 	// Run the game
 	while (gameWorld->renderWindow->isOpen())
 	{
@@ -147,10 +159,16 @@ void Pong::RunGame(void)
 			sf::Text statusMessage;
 			statusMessage.setFont(gameFont);
 			if (didPlayerWin)
-				statusMessage.setString("You Won! Congratulations!");
+				statusMessage.setString("You Won! Good job!");
 			else
 				statusMessage.setString("You lost... Try Again!");
-			statusMessage.set
+			statusMessage.setCharacterSize(48);
+			statusMessage.setPosition(END_X, END_Y);
+
+			sf::Text playAgain;
+			playAgain.setFont(gameFont);
+			playAgain.setString("Press R to play again!");
+			playAgain.setPosition(END_X, END_Y + 200);
 			sf::Event event;
 			while (gameWorld->renderWindow->pollEvent(event))
 			{
@@ -170,6 +188,11 @@ void Pong::RunGame(void)
 					}
 				}
 			}
+
+			gameWorld->renderWindow->clear();
+			gameWorld->renderWindow->draw(statusMessage);
+			gameWorld->renderWindow->draw(playAgain);
+			gameWorld->renderWindow->display();
 		}
 	}
 }

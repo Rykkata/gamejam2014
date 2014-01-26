@@ -20,6 +20,10 @@ int MoveableGraphicComponent::Update(GameObject* gameObject, World* world)
 	gameObject->boundingBox.top    =  gameObject->y     = m_sprite->getPosition().y;
 	gameObject->boundingBox.width  = gameObject->width  = m_sprite->getGlobalBounds().width;
 	gameObject->boundingBox.height = gameObject->height = m_sprite->getGlobalBounds().height;
+	if (gameObject->y + gameObject->height >= world->renderWindow->getSize().y)
+	{
+		gameObject->boundingBox.top = gameObject->y = world->renderWindow->getSize().y - gameObject->height;
+	}
 	// Draw the sprite
 	world->renderWindow->draw(*m_sprite);
 
