@@ -111,7 +111,13 @@ void Pong::RunGame(void)
 			while (gameWorld->renderWindow->pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed)
+				{
+					m_isGameRunning = false;
+					displayEndScreen = false;
+					BGM.stop();
 					gameWorld->renderWindow->close();
+				}
+					
 
 				if (m_usingKeyboard && event.type == sf::Event::KeyPressed)
 				{
@@ -173,8 +179,13 @@ void Pong::RunGame(void)
 			while (gameWorld->renderWindow->pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed)
-					gameWorld->renderWindow->close();
-
+				{
+					BGM.stop();
+					m_isGameRunning = false;
+					displayEndScreen = false;
+					gameWorld->renderWindow->close();	
+				}
+					
 				if (m_usingKeyboard && event.type == sf::Event::KeyPressed)
 				{
 					if (event.key.code == sf::Keyboard::R)
@@ -195,4 +206,11 @@ void Pong::RunGame(void)
 			gameWorld->renderWindow->display();
 		}
 	}
+
+	// clean up
+	delete gameWorld;
+	delete player;
+	delete ai;
+	delete ball;
+	delete ui;
 }

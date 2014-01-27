@@ -344,6 +344,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{4CC23B22-C6BC-4AEE-A37C-418115512679}</td><td>IMAGES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{BE2A83C1-A1F9-4F59-90F1-A5CE9BEA5853}</td><td>MUSIC</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{D8B9F94D-2F3B-4609-8ECE-5EDBA56BDFD9}</td><td>SPRITES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{03AECC6D-06C3-47AF-9F90-6A2E8146F36A}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>libsndfile_1.dll</td><td>{945528C0-F427-47C3-A7E1-AEC551E42718}</td><td>INSTALLDIR</td><td>2</td><td/><td>libsndfile_1.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>openal32.dll</td><td>{0E74801A-1A9A-4CAC-9201-F4CF570B08BD}</td><td>INSTALLDIR</td><td>2</td><td/><td>openal32.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>sfml_audio_2.dll</td><td>{65548377-50F1-4F37-BB7B-A4007A0E6825}</td><td>INSTALLDIR</td><td>2</td><td/><td>sfml_audio_2.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1060,6 +1061,7 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1881,6 +1883,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>AlwaysInstall</td><td>libsndfile_1.dll</td></row>
 		<row><td>AlwaysInstall</td><td>openal32.dll</td></row>
 		<row><td>AlwaysInstall</td><td>sfml_audio_2.dll</td></row>
@@ -2077,6 +2080,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_461605F5_520C_422A_A73B_BFA1AD5DCA2E_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_DD5860AF_154F_4673_A024_03791C4ADE91_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_63988F0D_E6F2_4155_B7E9_AA27B930A5C7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_4BB5B838_D581_4257_8361_0F5A3476EF47_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>libsndfile_1.dll</td><td/><td/><td>_B6879472_418F_4B72_8D1A_FD459F514C4D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>openal32.dll</td><td/><td/><td>_A4F67309_DB38_44DB_9C77_16CF3FA9474A_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>sfml_audio_2.dll</td><td/><td/><td>_CD6E8F56_D8A3_4C74_A17A_98F88F110DA6_FILTER</td><td/><td/><td/><td/></row>
@@ -2187,6 +2191,7 @@
 		<col key="yes" def="s255">ISMergeModule_</col>
 		<col key="yes" def="i2">Language_</col>
 		<row><td>AlwaysInstall</td><td>Microsoft_VC110_CRT_x86.D371D00B_69EC_3F8E_A622_74710A89ADC1</td><td>0</td></row>
+		<row><td>AlwaysInstall</td><td>Microsoft_VC120_CRT_x86.194841A2_D0F2_3B96_9F71_05BA91BEA0FA</td><td>0</td></row>
 	</table>
 
 	<table name="ISFeatureSetupPrerequisites">
@@ -2310,6 +2315,7 @@
 		<col def="S255">Destination</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>Microsoft_VC110_CRT_x86.D371D00B_69EC_3F8E_A622_74710A89ADC1</td><td>0</td><td>Visual C++ 11.0 CRT (x86)</td><td/><td/></row>
+		<row><td>Microsoft_VC120_CRT_x86.194841A2_D0F2_3B96_9F71_05BA91BEA0FA</td><td>0</td><td>Visual C++ 12.0 CRT (x86)</td><td/><td/></row>
 	</table>
 
 	<table name="ISMergeModuleCfgValues">
@@ -2671,6 +2677,7 @@
 		<col def="I2">Order</col>
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
+		<row><td>_DA934E6C_507C_4F6C_A370_1BF01F804340_</td><td>Microsoft Visual C++ 2012 Redistributable Package (x86).prq</td><td/><td/><td/></row>
 	</table>
 
 	<table name="ISSetupType">
@@ -4046,7 +4053,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{BA9755A2-4684-4950-A0C0-461DB332A9FD}</td></row>
 		<row><td>ISUSSignature</td><td>{970EECDF-3AE0-4496-B27F-485110684F7B}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewAppFiles,viewObjects</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewAppFiles,viewObjects,viewRelease,viewSystemSearch,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewIniFiles,viewRegistry,viewShortcuts,viewSupportFiles,viewComponentServices,viewSQLServer,viewDependencies</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
