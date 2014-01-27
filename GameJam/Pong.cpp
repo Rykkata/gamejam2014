@@ -97,6 +97,7 @@ void Pong::RunGame(void)
 	// Start the game
 	gameWorld->ResetObjects(false);
 	BGM.setLoop(true);
+	BGM.setVolume(25.0f);
 	BGM.play();
 	// Run the game
 	while (gameWorld->renderWindow->isOpen())
