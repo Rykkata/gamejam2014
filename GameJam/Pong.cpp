@@ -134,6 +134,10 @@ void Pong::RunGame(void)
 					if (event.key.code == sf::Keyboard::Down)
 						GameObject::message = DOWN;
 				}
+				else
+				{
+					GameObject::message = OFF;
+				}
 			}
 
 			// Redraw the screen and update the objects
