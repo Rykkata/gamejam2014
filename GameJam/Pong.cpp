@@ -136,7 +136,7 @@ void Pong::RunGame(void)
 				}
 				else
 				{
-					GameObject::message = OFF;
+					GameObject::message = NONE;
 				}
 			}
 
