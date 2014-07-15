@@ -7,5 +7,7 @@ public:
 	UIEventComponent();
 	~UIEventComponent();
 	virtual int Update(GameObject* gameObeject);
+private:
+	bool m_changedPosition;
 };
 

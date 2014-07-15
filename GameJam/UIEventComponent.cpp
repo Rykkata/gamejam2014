@@ -3,6 +3,7 @@
 #include "GameObject.h"
 UIEventComponent::UIEventComponent() : EventComponent()
 {
+	m_changedPosition = false;
 }
 
 
@@ -23,6 +24,7 @@ int UIEventComponent::Update(GameObject* object)
 			GameObject::attribute = BALL_SPEED;
 		else
 			GameObject::attribute = PADDLE_SIZE;
+
 	}
 	else if(GameObject::message == LEFT || xb360::DPadLeft())
 	{
